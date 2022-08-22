@@ -11,17 +11,17 @@ pipeline {
                 //error "Setup failed"
             }
         }
-        stage('Test-Deploy') {
+        stage('Run-Local-DC-App') {
             steps {
                 sh 'nohup python3 app/main.py &'
             }
         }
-        stage('Test-Host-app') {
+        stage('Test-Local-DC-App') {
             steps {
                 sh 'curl -Is http://127.0.0.1:5000 | head -n 1'
             }
         }
-        stage('Docker-Test') {
+        stage('Run-Docker-App') {
             steps {
                 sh 'sudo docker build -t python-flask docker/.'
                 sh 'sudo docker run -d -p 5001:5000 python-flask:latest'
