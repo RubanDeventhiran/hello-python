@@ -1,0 +1,14 @@
+pipeline {
+    agent { node { label 'Client' } }
+
+    stages {
+        stage('Deployment') {
+            steps {
+                //git 'https://github.com/RubanDeventhiran/hello-python'
+                //error "Setup failed"
+                echo "Deployment"
+            }
+        }
+    }
+}
+slackSend message: 'Deployed successfully'
