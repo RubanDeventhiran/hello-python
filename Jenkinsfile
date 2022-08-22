@@ -6,9 +6,6 @@ pipeline {
             steps {
                 sh 'sudo docker ps -aq | sudo  xargs docker stop'
             }
-            steps {
-                 sh 'ls -lrth'
-            }
         }
         stage('Env setup') {
             steps {
@@ -24,7 +21,6 @@ pipeline {
         stage('Test-Docker-app') {
             steps {
                 sh 'sudo docker run -d -p 5001:5000 python-flask:latest'
-                sh 'curl -Is http://127.0.0.1:5001 | head -n 1'
                 script{def response = sh(script: 'curl http://127.0.0.1:5001', returnStdout: true)}
             }
         }
