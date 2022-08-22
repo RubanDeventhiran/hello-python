@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Build-Docker-App') {
             steps {
-                sh 'sudo docker build -t python-flask docker/.'
+                sh 'sudo docker build --pull -t python-flask docker/.'
             }
         }
         stage('Test-Docker-app') {
