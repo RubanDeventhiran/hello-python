@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Cleanup') {
             steps {
-                sh 'sudo docker ps -aq | sudo  xargs docker stop'
+                sh 'sudo docker ps | sudo  xargs docker stop'
             }
         }
     }
