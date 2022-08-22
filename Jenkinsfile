@@ -7,7 +7,7 @@ pipeline {
                 sh 'sudo docker ps -aq | sudo  xargs docker stop'
             }
             steps {
-            sh 'ls -lrth'
+                 sh 'ls -lrth'
             }
         }
         stage('Env setup') {
