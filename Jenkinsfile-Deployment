@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'curl -Is http://127.0.0.1:5000 | head -n 1'
+                script{def response = sh(script: 'curl http://127.0.0.1:5000', returnStdout: true)}
             }
         }
     }
