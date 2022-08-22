@@ -2,6 +2,11 @@ pipeline {
     agent { node { label 'Client' } }
 
     stages {
+        stage('Pre-cleanup') {
+            steps {
+                sh 'sudo docker ps -aq | sudo  xargs docker stop'
+            }
+        }
         stage('Env setup') {
             steps {
                 git 'https://github.com/RubanDeventhiran/hello-python'
