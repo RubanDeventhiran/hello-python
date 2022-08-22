@@ -32,7 +32,7 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts: '.', onlyIfSuccessful: true
+            archiveArtifacts artifacts: 'docker/', onlyIfSuccessful: true
         }
     }
 }
