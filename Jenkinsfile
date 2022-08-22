@@ -25,5 +25,10 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            archiveArtifacts artifacts: 'main.py', onlyIfSuccessful: true
+        }
+    }
 }
 slackSend message: 'Build tested successfully'
