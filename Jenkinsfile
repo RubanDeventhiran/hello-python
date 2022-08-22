@@ -20,8 +20,8 @@ pipeline {
         }
         stage('Test-Docker-app') {
             steps {
-                sh 'sudo docker run -d -p 5001:5000 python-flask:latest'
-                script{def response = sh(script: 'curl http://127.0.0.1:5001', returnStdout: true)}
+                sh 'sudo docker run -d -p 5000:5000 python-flask:latest'
+                script{def response = sh(script: 'curl http://127.0.0.1:5000', returnStdout: true)}
             }
         }
         stage('Cleanup') {
