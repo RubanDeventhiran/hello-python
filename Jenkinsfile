@@ -32,7 +32,7 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts: 'main.py', onlyIfSuccessful: true
+            archiveArtifacts artifacts: 'app/main.py', onlyIfSuccessful: true
         }
     }
 }
