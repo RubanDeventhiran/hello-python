@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Deploy-Docker-app') {
             steps {
+                sh 'sudo docker build --pull -t python-flask docker/.'
                 sh 'sudo docker run -d -p 5000:5000 python-flask:latest'
                 
             }
