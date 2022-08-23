@@ -5,6 +5,7 @@ pipeline {
         stage('Pre-cleanup') {
             steps {
                 sh 'sudo docker ps -aq | sudo  xargs docker stop'
+                sh 'docker container rm $(docker container ls -aq)'
             }
         }
         stage('Env setup') {
